@@ -52,5 +52,5 @@ jobs:
            -Dsonar.branch.name=main
        uses: SonarSource/sonarcloud-github-action@main
        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         GITHUB_TOKEN: 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 # Needed to get PR information, if any
+         SONAR_TOKEN: 984601bb7c21707c290f281461420e50e3a8ff82
