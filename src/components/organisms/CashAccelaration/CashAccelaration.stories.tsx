@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CashAccelaration from './CashAccelaration';
-import testicon from './../../../../public/Images/icon-round.png';
-import calender from './../../../../public/Images/calendar.png';
-import download from './../../../../public/Images/document-download.png';
-import percentage from './../../../../public/Images/percentage-square.png';
+import testicon from './../../../Images/icon-round.png';
+import calender from './../../../Images/calendar.png';
+import download from './../../../Images/document-download.png';
+import percentage from './../../../Images/percentage-square.png';
 
 
 const meta = {

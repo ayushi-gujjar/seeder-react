@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from '../../atoms/Image/Image'
 import SideBarBox from '../../molecules/SideBarBox/SideBarBox'
-import logo from './../../../../public/Images/logo.png'
-import home from './../../../../public/Images/home.png';
-import coin from './../../../../public/Images/coin.png';
-import flash from './../../../../public/Images/flash.png';
+import logo from './../../../Images/logo.png'
+import home from './../../../Images/home.png';
+import coin from './../../../Images/coin.png';
+import flash from './../../../Images/flash.png';
 import IconText from '../../molecules/IconText/IconText';
 
 const headerList = [
@@ -49,12 +49,12 @@ const footer = {
 
 const NavBar = () => {
     return (
-        <div style={{ height: '768px', width: '250px' }}>
+        <div style={{ height: '940px', width: '238px', backgroundColor: '#201F24', padding : '25px', marginTop : '10px' }}>
             <Image src={logo} alt={'logo'}></Image>
             <div style={{marginTop : '30px'}}>
                 <SideBarBox {...sideBarData}></SideBarBox>
             </div>
-            <div style={{ marginTop: '500px',padding : '18px', height : '18px' , width : '200px' }}>
+            <div style={{ marginTop: '695px',padding : '18px', height : '18px' , width : '200px' }}>
                 <IconText {...footer}></IconText>
             </div>
         </div>

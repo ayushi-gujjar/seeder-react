@@ -17,13 +17,15 @@
 }
 
 .learMore {
-    width: 200px;
+    width: 180px;
     padding: 20px 40px 20px 40px !important;
     height: 60px;
     line-height: 19px !important;
     box-shadow: none !important;
     border-radius: 12px !important;
     border: 1px solid white !important;
+    margin-left: 260px !important;
+    color: white !important;
 }
 
 .tabBtn {

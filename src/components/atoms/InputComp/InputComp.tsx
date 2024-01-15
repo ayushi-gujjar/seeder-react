@@ -1,10 +1,10 @@
 import { Icon, Input, InputAdornment } from '@mui/material'
 import './InputComp.css'
 import './../../../Images/smile.png'
-import smile from './../../../../public/Images/smile.png';
-import idicon from './../../../../public/Images/direct-notification.png';
-import lock from './../../../../public/Images/lock.png';
-import eye from './../../../../public/Images/eye.png';
+import smile from './../../../Images/smile.png';
+import idicon from './../../../Images/direct-notification.png';
+import lock from './../../../Images/lock.png';
+import eye from './../../../Images/eye.png';
 
 import React from 'react';
 

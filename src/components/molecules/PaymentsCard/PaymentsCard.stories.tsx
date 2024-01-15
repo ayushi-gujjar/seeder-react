@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import PaymentsCard from './PaymentsCard';
-import testicon from './../../../../public/Images/icon-round.png';
-import receipt from './../../../../public/Images/receipt-text.png';
+import testicon from './../../../Images/icon-round.png';
+import receipt from './../../../Images/receipt-text.png';
 
 const meta = {
     title: 'Molecules/PaymentsCard',

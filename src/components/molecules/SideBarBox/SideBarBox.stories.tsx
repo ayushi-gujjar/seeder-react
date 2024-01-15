@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import SideBarBox from './SideBarBox';
-import home from './../../../../public/Images/home.png';
-import coin from './../../../../public/Images/coin.png';
+import home from './../../../Images/home.png';
+import coin from './../../../Images/coin.png';
 
 
 const meta = {

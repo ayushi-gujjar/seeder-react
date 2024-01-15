@@ -4,10 +4,10 @@ import Image from '../../atoms/Image/Image';
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp';
 import Card from '../Card/Card'
 import IconText from '../IconText/IconText';
-import percentage from './../../../../public/Images/percentage-square.png';
-import settings from './../../../../public/Images/setting-4.png'
-import avatar from './../../../../public/Images/avatar.png';
-import logout from './../../../../public/Images/logout.png';
+import percentage from './../../../Images/percentage-square.png';
+import settings from './../../../Images/setting-4.png'
+import avatar from './../../../Images/avatar.png';
+import logout from './../../../Images/logout.png';
 
 
 const cardStyle = {

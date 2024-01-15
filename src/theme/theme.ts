@@ -52,9 +52,10 @@ let theme = createTheme({
             fontFamily: `'test',sans-serif`,
         },
         subtitle2: {
-            fontSize: 18,
+            fontSize: 12,
             lineHeight: 24 + 'px',
             fontFamily: `'test',sans-serif`,
+            fontWeight : 500
         },
         subtitle3: {
             fontSize: 18,
@@ -96,6 +97,7 @@ let theme = createTheme({
             fontSize: 16,
             lineHeight: 20 + 'px',
             fontFamily: `'test',sans-serif`,
+            fontWeight : 700
         },
     } as ExtendedTypographyOptions,
     components: {

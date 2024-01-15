@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import IconText from './IconText';
-import testicon from './../../../../public/Images/icon-round.png';
+import testicon from './../../../Images/icon-round.png';
 
 const meta = {
     title: 'Molecules/IconText',

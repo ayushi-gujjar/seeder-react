@@ -3,7 +3,7 @@ import React from 'react'
 import Image from '../../atoms/Image/Image'
 import InputComp from '../../atoms/InputComp/InputComp'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
-import testicon from './../../../../public/Images/icon-round.png';
+import testicon from './../../../Images/icon-round.png';
 
 const textStyle = {
     color: '#E8E7F0'
