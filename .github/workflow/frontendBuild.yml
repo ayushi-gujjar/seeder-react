@@ -27,7 +27,7 @@ jobs:
        uses: SonarSource/sonarcloud-github-action@master
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_TOKEN: 0ea08da3ece6e8a97761ac972d2728be7d66aee2
  branchAnalysis: # to get the branch analysis on merge
    if: github.event.pull_request.merged == true
    name: Branch Analysis on PR merge

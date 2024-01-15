@@ -65,9 +65,5 @@
     "storybook": "^7.6.7",
     "webpack": "^5.89.0",
     "jest-sonar-reporter": "2.0.0"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
   }
 }

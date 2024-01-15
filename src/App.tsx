@@ -8,7 +8,7 @@ import CashAccelerationComp from './components/Templates/CashAccelaration/CashAc
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CashAccelerationComp />
+      <Home />
     </ThemeProvider>
 
   );
