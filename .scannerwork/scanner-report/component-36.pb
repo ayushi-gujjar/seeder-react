@@ -1,0 +1,1 @@
+$ 2tsX8hr.src/components/atoms/SliderComp/SliderComp.tsx

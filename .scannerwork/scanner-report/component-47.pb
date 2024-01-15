@@ -1,0 +1,1 @@
+/ 2tsXWhr4src/components/molecules/ProfileCard/ProfileCard.tsx

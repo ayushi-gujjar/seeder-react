@@ -1,0 +1,1 @@
+( 2tsXhr6src/components/atoms/TypographyComp/TypographyComp.tsx

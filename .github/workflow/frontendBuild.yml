@@ -3,6 +3,7 @@ on:
  push:
    branches:
      - main
+     - development
  pull_request:
    types: [opened, synchronize, reopened, closed]
 jobs:
@@ -12,7 +13,7 @@ jobs:
    runs-on: ubuntu-latest
    defaults:
      run:
-       working-directory: ./seeder-react
+       working-directory: seeder-react
    steps:
      - uses: actions/checkout@v2
        with:
@@ -23,18 +24,18 @@ jobs:
        run: npm test src/
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./eeder-react
+         projectBaseDir: seeder-react
        uses: SonarSource/sonarcloud-github-action@master
        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-         SONAR_TOKEN: 0ea08da3ece6e8a97761ac972d2728be7d66aee2
+         GITHUB_TOKEN: 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 # Needed to get PR information, if any
+         SONAR_TOKEN: 8d0b54538fe8c6d9227d34f1b82f3ad539aa571a
  branchAnalysis: # to get the branch analysis on merge
    if: github.event.pull_request.merged == true
    name: Branch Analysis on PR merge
    runs-on: ubuntu-latest
    defaults:
      run:
-       working-directory: ./seeder-react
+       working-directory: seeder-react
    steps:
      - uses: actions/checkout@v2
        with:
@@ -47,10 +48,10 @@ jobs:
        run: npm run chromatic
      - name: SonarCloud Scan
        with:
-         projectBaseDir: ./seeder-react
+         projectBaseDir: seeder-react
          args: >
            -Dsonar.branch.name=main
        uses: SonarSource/sonarcloud-github-action@main
        env:
          GITHUB_TOKEN: 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 # Needed to get PR information, if any
-         SONAR_TOKEN: 984601bb7c21707c290f281461420e50e3a8ff82
+         SONAR_TOKEN: 8d0b54538fe8c6d9227d34f1b82f3ad539aa571a

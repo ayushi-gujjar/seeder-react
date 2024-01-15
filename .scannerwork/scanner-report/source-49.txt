@@ -1,0 +1,14 @@
+.cash-card {
+
+}
+
+.calender-img {
+    padding: 5px;
+    background-color: #28272B;
+    height: 80px;
+    width: 80px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}

@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'test';
+  src: url('./fonts/Gilroy-ExtraBold.otf') format("opentype")
+}
+
+
+body {
+  margin: 0;
+  font-family: 'test', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #19181C;
+  padding: 0;
+  overflow: hidden;
+}
+
+code {
+  font-family: 'test';
+}
+
+
+.css-4akyg0-MuiSlider-thumb:hover, .css-4akyg0-MuiSlider-thumb.Mui-focusVisible {
+  box-shadow: none !important;
+}
+
+.Mui-active {
+  box-shadow: none !important;
+
+}
+
+.css-4akyg0-MuiSlider-thumb.Mui-active {
+  box-shadow: none !important;
+
+}
+
+.display-flex {
+  display: flex;
+}
