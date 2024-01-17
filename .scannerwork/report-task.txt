@@ -1,0 +1,7 @@
+organization=ayushi-gujjar
+projectKey=seeder-react-app
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.51948
+dashboardUrl=https://sonarcloud.io/dashboard?id=seeder-react-app
+ceTaskId=AY0Sezs0FBX9sLNtCUkr
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AY0Sezs0FBX9sLNtCUkr

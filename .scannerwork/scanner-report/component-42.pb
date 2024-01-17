@@ -1,1 +1,0 @@
-* 2cssXhr,src/components/atoms/InputComp/InputComp.css

@@ -1,50 +1,47 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import ButtonComp from './ButtonComp';
 
 describe('ButtonComp', () => {
-  test('renders button with label and applies styles', () => {
-    const props : any = {
-      label: 'Click me',
-      color: 'primary',
-      variant: 'contained',
-      class: 'custom-button',
-      enable: false,
-    };
-
-    render(<ButtonComp {...props} />);
-
-    // Check if the button is rendered with the correct label and styles
-    const button = screen.getByRole('button', { name: /click me/i });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('custom-button');
-    expect(button).not.toHaveClass('disable'); // Ensure the disable class is not applied
-
-    // Check if the button has the correct styles based on the label length
-    expect(button).toHaveStyle({ width: `${props.label.length * 22}px` });
+  test('renders button with label', () => {
+    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" />);
+    const buttonElement = screen.getByText('Click me');
+    expect(buttonElement).toBeInTheDocument();
   });
 
-  test('handles click event when enabled', () => {
-    const onClickMock = jest.fn();
-    const props : any = {
-      label: 'Click me',
-      color: 'primary',
-      variant: 'contained',
-      class: 'custom-button',
-      enable: true,
-    };
+  test('applies the correct color and variant', () => {
+    render(<ButtonComp label="Submit" color="primary" variant="contained" class="custom-class" />);
+    const buttonElement = screen.getByText('Submit');
 
-    render(<ButtonComp {...props} />);
+    // Check the color and variant classes
+    expect(buttonElement).toHaveClass('MuiButton-containedPrimary');
+  });
 
-    const button = screen.getByRole('button', { name: /click me/i });
+  test('applies additional class when enable is false', () => {
+    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" enable={true} />);
+    const buttonElement = screen.getByText('Click me');
 
-    // Click the button and check if the onClick event is called
-    userEvent.click(button);
-    expect(onClickMock).not.toHaveBeenCalled(); // Assuming there's no onClick prop provided
+    // Check if the 'disable' class is applied
+    expect(buttonElement).toHaveClass('disable');
+  });
 
-    // Ensure the button is disabled
-    expect(button).toHaveAttribute('disabled');
-    expect(button).toHaveClass('disable');
+  // test('calls onClick function when clicked', () => {
+  //   const onClickMock = jest.fn();
+  //   render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" onClick={onClickMock} />);
+  //   const buttonElement = screen.getByText('Click me');
+
+  //   // Simulate a click event
+  //   userEvent.click(buttonElement);
+
+  //   // Check if the onClick function is called
+  //   expect(onClickMock).toHaveBeenCalled();
+  // });
+
+  test('is disabled when enable is true', () => {
+    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" enable={true} />);
+    const buttonElement = screen.getByText('Click me');
+
+    // Check if the button is disabled
+    expect(buttonElement).toBeDisabled();
   });
 });

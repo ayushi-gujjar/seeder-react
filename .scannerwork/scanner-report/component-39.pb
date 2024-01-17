@@ -1,1 +1,0 @@
-' 2cssXdhr.src/components/atoms/ButtonComp/ButtonComp.css

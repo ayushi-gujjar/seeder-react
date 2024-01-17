@@ -1,1 +1,0 @@
-4 2tsXMhr*src/components/organisms/NavBar/NavBar.tsx

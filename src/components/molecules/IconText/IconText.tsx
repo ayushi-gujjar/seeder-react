@@ -1,7 +1,5 @@
-import { Grid } from '@mui/material'
 import React from 'react'
 import Image from '../../atoms/Image/Image'
-import InputComp from '../../atoms/InputComp/InputComp'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import testicon from './../../../Images/icon-round.png';
 
@@ -19,10 +17,16 @@ const imageStyle = {
 
 
 
-const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet }: any) => {
+const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet,onNavChange }: any) => {
+
+   const onClickIconText = () => {
+        console.log('here in click');
+        onNavChange(label);
+    }
+
     return (
         <div>
-            <div style={{ display: 'flex' }} className='display-flex'>
+            <div style={{ display: 'flex' }} className='display-flex' onClick={onClickIconText}>
                 {isLeft ? <Image imageStyle={imageStyle} src={icon} alt="image" /> : ''}
                 <TypographyComp varient={varinet} value={label} textStyle={textStyle} />
                 {isRight ? <Image imageStyle={imageStyle} src={testicon} alt="image" /> : ''}

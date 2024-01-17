@@ -1,1 +1,0 @@
-# 2tsX+hr2src/components/atoms/CheckboxComp/CheckboxComp.tsx

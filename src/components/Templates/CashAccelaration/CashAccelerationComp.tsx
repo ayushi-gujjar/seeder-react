@@ -1,8 +1,5 @@
 import React from 'react';
-import Header from '../../organisms/Header/Header'
-import NavBar from '../../organisms/NavBar/NavBar'
-// import './Home.css'
-import { Avatar, Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import TableComp from '../../organisms/TableComp/TableComp';
 import QuickAccess from '../../organisms/QuickAccess/QuickAccess';
 import CashCard from '../../molecules/CashCard/CashCard';
@@ -43,36 +40,34 @@ const cardOne = {
 
 const CashAccelerationComp = () => {
     return (
-        <div className='main'>
-            <Grid container>
-                <Grid item xs={3} style={{ flexBasis: '18%' }}>
-                    <NavBar />
-                </Grid>
-                <Grid item xs={9} style={{ padding: '10px', flexBasis: '81%', maxWidth: '80%' }}>
-                    <Header />
-                    <Paper elevation={3} style={{ position: 'relative', padding: '16px', backgroundColor: 'transparent', boxShadow: 'none' }}>
-                        <Grid container spacing={4}>
-                            {/* Left side */}
-                            <Grid item xs={8} container style={{
-                                backgroundColor: '#201F24', padding: '40px', borderRadius: '12px', marginLeft: '15px',
-                                justifyContent: 'space-around', height: '285px', marginTop: '15px'
-                            }}>
-                                <CashCard image={{ src: calender, alt: 'calneder' }} {...cardOne} />
-                                <CashCard image={{ src: download, alt: 'download' }} {...cardOne} />
-                                <CashCard image={{ src: percent, alt: 'percent' }} {...cardOne} />
-                            </Grid>
-                            {/* Right side */}
-                            <Grid item xs={3} container>
-                                <QuickAccess />
-                            </Grid>
+        <Paper elevation={0} style={{ position: 'relative', padding: '16px', backgroundColor: 'transparent' }}>
+            <Grid container justifyContent='space-between' spacing={0}>
+                <Grid item xs={12} sm={8} md={8} style={{ backgroundColor: '#201F24', padding: '20px', borderRadius: '12px', paddingTop: '50px', paddingLeft: '60px' }}>
+                    <Grid container direction='row' alignItems="center">
+                        <Grid item xs={4} md={4} sm={4}>
+                            <CashCard image={{ src: calender, alt: 'calneder' }} {...cardOne} />
                         </Grid>
-                    </Paper>
-                    <div style={{ marginTop: '30px', backgroundColor: '#28272B', padding: '20px', borderRadius: '12px', marginLeft: '15px' }}>
-                        <TableComp tableHeaders={tableHeaders} rows={[]} page='HOME' isCheckBox={false} headerData={{ isTab: true, isBtn: true }} headerValue={'Cash accleration'} />
+                        <Grid item xs={4} md={4} sm={4}>
+                            <CashCard image={{ src: download, alt: 'download' }} {...cardOne} />
+                        </Grid>
+                        <Grid item xs={4} md={4} sm={4}>
+                            <CashCard image={{ src: percent, alt: 'percent' }} {...cardOne} />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} container style={{ justifyContent: 'end' }}>
+                    <div style={{ width: '405px' }}>
+                        <QuickAccess />
                     </div>
                 </Grid>
             </Grid>
-        </div>
+            <Grid container style={{ marginTop: '30px', backgroundColor: '#28272B', padding: '20px', borderRadius: '12px' }}>
+                <Grid item xs={12} md={12}>
+                    <TableComp tableHeaders={tableHeaders} rows={[]} page='HOME' isCheckBox={false} headerData={{ isTab: false, isBtn: false }} headerValue={'Your Payments'} />
+                </Grid>
+            </Grid>
+        </Paper>
+
     )
 }
 

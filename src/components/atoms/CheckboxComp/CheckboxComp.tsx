@@ -3,21 +3,22 @@ import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 
 const CheckboxComp = (props: any) => {
+    console.log(props)
     const styles = {
         root: {
-            color: '#A5A5A6', // Change the color of the checkbox,
-            marginLeft: props.isMargin ? '15px': '',
-            padding: props.isMargin ? '10px' : '', 
-            marginTop:  props.isMargin ? '7px' : ''
+            color: '#A5A5A6 !important', 
+            marginLeft: props.isMargin ? '15px' : '',
+            padding: props.isMargin ? '10px' : '',
+            marginTop: props.isMargin ? '0px' : ''
         },
         icon: {
-            borderRadius: 0, // Change to 0 for a square checkbox
-            backgroundColor: '#B4A9FF', // Change the background color of the checkbox
+            borderRadius: 0, 
+            backgroundColor: '#B4A9FF', 
             fill: 'red'
         },
         checked: {
             '&$icon': {
-                backgroundColor: 'red', // Change the background color of the checked checkbox
+                backgroundColor: 'red', 
             },
             color: '#B4A9FF !important'
         },
@@ -29,12 +30,10 @@ const CheckboxComp = (props: any) => {
         setChecked(!checked);
     };
     return (
-        <div>
-            <FormControlLabel
-                control={<StyledCheckbox checked={checked} onChange={handleChange} />}
-                label=""
-            />
-        </div>
+        <FormControlLabel
+            control={<StyledCheckbox checked={checked} onChange={handleChange} />}
+            label=""
+        />
     )
 }
 

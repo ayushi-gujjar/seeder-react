@@ -5,7 +5,7 @@ import IconText from '../IconText/IconText'
 import './CashCard.css'
 const CashCard = ({ iconTextStyle, image, heading }: any) => {
     return (
-        <div className='cash-card'>
+        <div>
             <div className='calender-img'>
                 <Image {...image} />
             </div>

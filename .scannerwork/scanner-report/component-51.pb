@@ -1,1 +1,0 @@
-3 2tsXhr6src/components/molecules/PaymentsCard/PaymentsCard.tsx

@@ -1,1 +1,0 @@
-2 2cssXhr6src/components/molecules/PaymentsCard/PaymentsCard.css

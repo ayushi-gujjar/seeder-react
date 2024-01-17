@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 
 const headerList = [
-    { value: "Home", img: home, isActie : false },
+    { value: "Home", img: home, isActive : false },
     { value: "Cash Accleration", img: coin , isActive : true}
 ]
 

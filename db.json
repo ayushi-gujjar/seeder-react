@@ -1,0 +1,152 @@
+{
+    "contracts": [
+        {
+            "name": "Contract 1",
+            "status": "Available",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "totalFinanced": null,
+            "totalAvailable": "$126,722.64"
+        },
+        {
+            "name": "Contract 1",
+            "status": "Available",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "totalFinanced": null,
+            "totalAvailable": "$126,722.64"
+        },
+        {
+            "name": "Contract 1",
+            "status": "Available",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "totalFinanced": null,
+            "totalAvailable": "$126,722.64"
+        },
+        {
+            "name": "Contract 1",
+            "status": "Available",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "totalFinanced": null,
+            "totalAvailable": "$126,722.64"
+        },
+        {
+            "name": "Contract 1",
+            "status": "Available",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "totalFinanced": null,
+            "totalAvailable": "$126,722.64"
+        }
+    ],
+    "cahskciks": [],
+    "myPayments": [
+        {
+            "dueDate": {
+                "date": "Mar 03,2021",
+                "days": 31
+            },
+            "status": "Upcoming",
+            "expectedAmount": "-$14,204.55",
+            "outstanding": "$156,250.05"
+        },
+        {
+            "dueDate": {
+                "date": "Mar 03,2021",
+                "days": 31
+            },
+            "status": "Upcoming",
+            "expectedAmount": "-$14,204.55",
+            "outstanding": "$156,250.05"
+        },
+        {
+            "dueDate": {
+                "date": "Mar 03,2021",
+                "days": 31
+            },
+            "status": "Upcoming",
+            "expectedAmount": "-$14,204.55",
+            "outstanding": "$156,250.05"
+        },
+        {
+            "dueDate": {
+                "date": "Mar 03,2021",
+                "days": 31
+            },
+            "status": "Upcoming",
+            "expectedAmount": "-$14,204.55",
+            "outstanding": "$156,250.05"
+        },
+        {
+            "dueDate": {
+                "date": "Mar 03,2021",
+                "days": 31
+            },
+            "status": "Upcoming",
+            "expectedAmount": "-$14,204.55",
+            "outstanding": "$156,250.05"
+        }
+    ],
+    "newcashkickContracts": [
+        {
+            "isSelected": false,
+            "name": "Contract 1",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "teamLength": {
+                "months": "11",
+                "fee": "12"
+            },
+            "payment": "$126,722.64"
+        },
+        {
+            "isSelected": false,
+            "name": "Contract 1",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "teamLength": {
+                "months": "11",
+                "fee": "12"
+            },
+            "payment": "$126,722.64"
+        },
+        {
+            "isSelected": false,
+            "name": "Contract 1",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "teamLength": {
+                "months": "11",
+                "fee": "12"
+            },
+            "payment": "$126,722.64"
+        },
+        {
+            "isSelected": false,
+            "name": "Contract 1",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "teamLength": {
+                "months": "11",
+                "fee": "12"
+            },
+            "payment": "$126,722.64"
+        },
+        {
+            "isSelected": false,
+            "name": "Contract 1",
+            "type": "Monthly",
+            "perPayment": "$12,000.23",
+            "teamLength": {
+                "months": "11",
+                "fee": "12"
+            },
+            "payment": "$126,722.64"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}

@@ -1,32 +1,40 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import theme from '../../../theme/theme';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import { makeStyles } from '@mui/styles';
 import './ButtonComp.css'
+import { ThemeProvider } from '@emotion/react';
+import theme from '../../../theme/theme';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface ButtonProps {
   label: string,
   color: "secondary" | "inherit" | "primary" | "success" | "error" | "info" | "warning" | undefined,
   variant: "text" | "outlined" | "contained" | undefined,
   class: string,
-  enable?: boolean
+  enable?: boolean,
+  isStartIcon?: boolean,
+  startIcon?: any,
+  onNavChange?: any
 }
 
 
 export const ButtonComp = (props: ButtonProps) => {
-  const buttonStyle = {
-    width: `${props.label.length * 22}px`, 
-  };
-  
+
+  const onBtnClick = () => {
+    console.log('here in click');
+    if (props.onNavChange) {
+      props.onNavChange(props.label);
+    }
+  }
+
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button disabled={props.enable ? props.enable : false} variant={props.variant} color={props.color} size="large"
+        <Button onClick={onBtnClick} startIcon={props.isStartIcon ? <img src={props.startIcon} alt="Custom Icon" style={{ width: '16px', height: '16px', marginRight: '5px', marginLeft: '10px' }} /> : null} disabled={props.enable ? props.enable : false} variant={props.variant} color={props.color} size="large"
           className={`${props.class} ${props.enable ? 'disable' : ''}`}>
           {props.label}
         </Button>
       </ThemeProvider>
+
     </div>
   )
 }

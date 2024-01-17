@@ -51,6 +51,7 @@ const tableHeader2 = {
 }
 
 const generateTableBody = (data: any, page: 'HOME' | 'MY_CONTACTS' | 'NEW_CASH_KICK' | 'MY_CASH_KICK', isCheckBox: boolean) => {
+    console.log(data, page)
     if (!data || data.length === 0) {
         return (
             <TableBody>
@@ -85,6 +86,12 @@ const generateTableBody = (data: any, page: 'HOME' | 'MY_CONTACTS' | 'NEW_CASH_K
     }
 };
 
+const TypoGraphyComponentCellValue = (value: any, color: string) => {
+    return (
+        <TypographyComp varient='body2' value={value} textStyle={{ color: color }} />
+    )
+}
+
 const myContacts = (data: any) => {
     return (
         <TableBody>
@@ -93,24 +100,24 @@ const myContacts = (data: any) => {
                     key={name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }, backgroundColor: 'rgb(40, 39, 43)' }}>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={name ? name : '-'} textStyle={{ color: '#E8E7F0' }} />
+                        {TypoGraphyComponentCellValue(name, '#E8E7F0')}
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
                         <div style={{ display: 'flex' }}>
-                            <TypographyComp varient='body2' value={status ? status : '-'} textStyle={{ color: '#E8E7F0', backgroundColor: '#2D2D30', padding: '5px', borderRadius: '4px' }} />
+                            <TypographyComp varient='body2' value={status} textStyle={{ color: '#E8E7F0', backgroundColor: '#2D2D30', padding: '5px', borderRadius: '4px' }} />
                         </div>
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={type ? type : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        {TypoGraphyComponentCellValue(type, '#A5A5A6')}
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={perPayment ? perPayment : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        {TypoGraphyComponentCellValue(perPayment, '#E8E7F0')}
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={totalFinanced ? totalFinanced : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        {TypoGraphyComponentCellValue(totalFinanced, '#A5A5A6')}
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={totalAvailable ? totalAvailable : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        {TypoGraphyComponentCellValue(totalAvailable, '#A5A5A6')}
                     </TableCell>
                 </TableRow>
             ))}
@@ -156,26 +163,19 @@ const newCashKickTableBody = (data: any, ischeckbox: boolean) => {
                 <TableRow
                     key={name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }, backgroundColor: 'rgb(40, 39, 43)' }}>
-                    {/* <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <CheckboxComp isMargin={false} />
-
-                    </TableCell> */}
                     {ischeckbox ? (
-                        <>
-                            <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                                <CheckboxComp isMargin={false} />
-                            </TableCell>
-                        </>
+                        <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
+                            <CheckboxComp isMargin={true} />
+                        </TableCell>
                     ) : null}
-
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={name ? name : '-'} textStyle={{ color: '#E8E7F0' }} />
+                        <TypographyComp varient='body2' value={name} textStyle={{ color: '#E8E7F0' }} />
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={type ? type : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        <TypographyComp varient='body2' value={type} textStyle={{ color: '#A5A5A6' }} />
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={perPayment ? perPayment : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        <TypographyComp varient='body2' value={perPayment} textStyle={{ color: '#A5A5A6' }} />
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
                         <div>
@@ -184,7 +184,7 @@ const newCashKickTableBody = (data: any, ischeckbox: boolean) => {
                         </div>
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={payment ? payment : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        <TypographyComp varient='body2' value={payment} textStyle={{ color: '#A5A5A6' }} />
                     </TableCell>
                 </TableRow>
             ))}
@@ -200,15 +200,15 @@ const myCashKickTableBody = (data: any) => {
                     key={name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }, backgroundColor: 'rgb(40, 39, 43)' }}>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={name ? name : '-'} textStyle={{ color: '#E8E7F0' }} />
+                        <TypographyComp varient='body2' value={name} textStyle={{ color: '#E8E7F0' }} />
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
                         <div style={{ display: 'flex' }}>
-                            <TypographyComp varient='body2' value={status ? status : '-'} textStyle={{ color: '#E8E7F0', backgroundColor: '#2D2D30', padding: '5px', borderRadius: '4px' }} />
+                            <TypographyComp varient='body2' value={status} textStyle={{ color: '#E8E7F0', backgroundColor: '#2D2D30', padding: '5px', borderRadius: '4px' }} />
                         </div>
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={maturity ? maturity : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        <TypographyComp varient='body2' value={maturity} textStyle={{ color: '#A5A5A6' }} />
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
                         <div>
@@ -217,7 +217,7 @@ const myCashKickTableBody = (data: any) => {
                         </div>
                     </TableCell>
                     <TableCell sx={{ backgroundColor: '#201F24', color: '#E8E7F0', borderRadius: 0, border: 'none !important' }}>
-                        <TypographyComp varient='body2' value={totalFinanced ? totalFinanced : '-'} textStyle={{ color: '#A5A5A6' }} />
+                        <TypographyComp varient='body2' value={totalFinanced} textStyle={{ color: '#A5A5A6' }} />
                     </TableCell>
                 </TableRow>
             ))}
@@ -227,7 +227,7 @@ const myCashKickTableBody = (data: any) => {
 
 
 const TableComp = ({ tableHeaders, page, rows, isCheckBox, headerData, headerValue }: any) => {
-    console.log(tableHeader);
+    console.log(rows);
     const { isTab, isBtn } = headerData;
     return (
         <div>
@@ -243,16 +243,19 @@ const TableComp = ({ tableHeaders, page, rows, isCheckBox, headerData, headerVal
                         <ButtonComp label='My Cash Kicks' color='primary' variant='contained' class='tabBtn' />
                     </div>
                 </div> : ''}
-            <TableContainer component={Paper} sx={{ overflow: 'hidden', boxShadow: 'none !important', borderRadius: 0, backgroundColor: 'rgb(40, 39, 43)', marginTop: '30px', overflowY: 'scroll', height: '365px' }}>
+            <TableContainer component={Paper} sx={{ overflow: 'hidden', boxShadow: 'none !important', borderRadius: 0, backgroundColor: 'rgb(40, 39, 43)', marginTop: '30px', height: '465' }}>
                 <Table sx={{ minWidth: 950, borderRadius: '15px' }} stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow sx={{ backgroundColor: '#262529', color: '#A5A5A6' }}>
                             {tableHeaders.map((item: any, i: number) => (
-                                <React.Fragment key={i}>
+                                <React.Fragment key={item}>
                                     {item === 'checkbox' ? (
-                                        <CheckboxComp isMargin={true} />
+                                        <TableCell key={item} sx={{ backgroundColor: '#262529', color: '#A5A5A6', border: 'none !important', borderRadius: `${i === 0 ? '8px 0px 0px 8px' : '0px 8px 8px 0px'}` }}>
+                                            <CheckboxComp isMargin={true} />
+                                        </TableCell>
+
                                     ) : (
-                                        <TableCell key={i} sx={{ backgroundColor: '#262529', color: '#A5A5A6', border: 'none !important', borderRadius: `${i === 0 ? '8px 0px 0px 8px' : '0px 8px 8px 0px'}` }}>
+                                        <TableCell key={item} sx={{ backgroundColor: '#262529', color: '#A5A5A6', border: 'none !important', borderRadius: `${i === 0 ? '8px 0px 0px 8px' : '0px 8px 8px 0px'}` }}>
                                             {item}
                                         </TableCell>
                                     )}
