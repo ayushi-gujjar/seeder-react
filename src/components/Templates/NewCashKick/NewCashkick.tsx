@@ -6,6 +6,10 @@ import TableComp from '../../organisms/TableComp/TableComp';
 import SummaryCard from '../../organisms/SummaryCard/SummaryCard';
 import { useNavigate } from 'react-router-dom';
 import { getNewCashKickContracts } from './../../../api/api';
+import { addNewCashKick } from './../../../api/api';
+
+import DialogComp from '../../organisms/DialogComp/DialogComp';
+import { setSourceMapRange } from 'typescript';
 
 const back: any = {
     label: 'Back',
@@ -17,29 +21,62 @@ const back: any = {
     startIcon: leftarrow
 }
 const tableHeaders: any = ['checkbox', 'Name', 'Type', 'Per Payment', 'Team Length', 'Payment'];
-
+const viewTableHeaders: any = ['Name', 'Type', 'Per Payment', 'Team Length', 'Payment'];
 const NewCashkick = () => {
-    const [data, setData] = useState([]);
+    const [apiData, setData] = useState<any>([]);
+    const [selectedContracts, setSelectedContracts] = useState<any>([]);
+    const [isReview, setIsReview] = useState<boolean>(false);
+    const [isOpen, setOpen] = useState<boolean>(false);
+    const [successDialog , setSuccessDialog] = useState<boolean>(false)
 
-   const onReviewCard = () => {
-    console.log("in new cash kick template");
-   }
+    const onReviewCard = (label: string) => {
+        setIsReview(true);
+
+        if (label === 'Submit Your Credit') {
+            setOpen(true);
+        }
+    }
+
+    const dialogAction = (key: any, value?: any) => {
+        const sum = selectedContracts.reduce((accumulator: any, data: any) => {
+            return accumulator + data.payment;
+        }, 0);
+        let obj = {
+            name: value,
+            status: 'Pending',
+            maturity: 'Jan 18, 2024',
+            totalReceived: {
+                amount: sum,
+                fee: 12
+            },
+            totalFinanced: sum
+        }
+        setSuccessDialog(true);
+        addNewCashKick(obj)
+    }
+
+    const onSelection = (data: any, checked: any) => {
+        if (!checked) {
+            setSelectedContracts((prevSelectedContracts: any) => [...prevSelectedContracts, data]);
+        } else {
+            setSelectedContracts((prevSelectedContracts: any) =>
+                prevSelectedContracts.filter((item: any) => item.id !== data.id)
+            );
+        }
+    }
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await getNewCashKickContracts();
-                console.log(response)
                 setData(response);
             } catch (error) {
                 // setError(error);
             } finally {
             }
         };
-
         fetchData();
-    }, []);
-
+    }, [selectedContracts, isReview, isOpen,successDialog]);
 
     const navigate = useNavigate();
     const onBack = (key: string) => {
@@ -47,16 +84,17 @@ const NewCashkick = () => {
     }
     return (
         <div >
+            <DialogComp isSuccess={successDialog} onDialogAction={dialogAction} isOpen={isOpen} />
             <Grid container marginTop={'30px'} padding={'10px'}>
                 <Grid item xs={12} md={12} sm={12}>
                     <ButtonComp onNavChange={onBack} {...back} />
                 </Grid>
                 <Grid item container direction={'row'} marginTop={'20px'} columnSpacing={3} style={{ marginTop: '30px' }}>
                     <Grid item xs={12} md={8} sm={8} style={{ backgroundColor: '#28272B', padding: '20px', borderRadius: '12px' }}>
-                        <TableComp tableHeaders={tableHeaders} rows={data} page='NEW_CASH_KICK' isCheckBox={true} headerData={{ isTab: false, isBtn: false }} headerValue={'Your Contracts'} />
+                        <TableComp checkboxInputChange={onSelection} tableHeaders={isReview ? viewTableHeaders : tableHeaders} rows={isReview ? selectedContracts : apiData} page='NEW_CASH_KICK' isCheckBox={isReview ? false : true} headerData={{ isTab: false, isBtn: false }} headerValue={'Your Contracts'} />
                     </Grid>
                     <Grid item xs={12} md={4} sm={4} marginLeft={'0px'}>
-                        <SummaryCard onReview={onReviewCard} />
+                        <SummaryCard selectedContracts={selectedContracts} isReview={isReview} onReview={onReviewCard} />
                     </Grid>
                 </Grid>
             </Grid>

@@ -1,32 +1,36 @@
 import { Slider } from '@mui/material'
 import { makeStyles } from '@material-ui/core/styles';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 function valuetext(value: number) {
   return `${value}°C`;
 }
 
 const useStyles = makeStyles({
   root: {
-    color: '#6C5DD3', // Change the color for non-selected area
+    color: '#6C5DD3',
   },
   thumb: {
-    backgroundColor: '#6C5DD3', // Change the color for the selected thumb
+    backgroundColor: '#6C5DD3',
     width: 23,
     height: 23,
     border: '3px solid #B4A9FF',
     borderRadius: 5
   },
   rail: {
-    backgroundColor: '#3A3A3D', // Change the color for the non-selected rail
+    backgroundColor: '#3A3A3D',
   },
 });
-const SliderComp = () => {
+const SliderComp = (props: any) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(props.totalAmount ? props.totalAmount : 0);
 
   const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    setValue(props.totalAmount)
+  }, [props]);
 
   const sliderStyle = {
     width: '280px',
@@ -45,6 +49,7 @@ const SliderComp = () => {
         getAriaValueText={valuetext}
         color="secondary"
         value={value}
+        max={500000}
         onChange={handleChange}
       />
     </div >

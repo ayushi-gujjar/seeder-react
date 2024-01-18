@@ -10,7 +10,6 @@ import NewCashkickPage from '../NewCashKick/NewCashkick';
 const Main = () => {
     const navigate = useNavigate();
     const onNavigate = (key: string) => {
-        console.log('Route to: ', key);
 
         // Use the navigate function to change the route
         if (key === 'Home') {
@@ -21,7 +20,6 @@ const Main = () => {
     };
 
     return (
-        <React.StrictMode>
             <div className="main">
                 <Grid container>
                     <Grid item xs={2} md={2} >
@@ -40,7 +38,6 @@ const Main = () => {
                     </Grid>
                 </Grid>
             </div>
-        </React.StrictMode>
     );
 };
 

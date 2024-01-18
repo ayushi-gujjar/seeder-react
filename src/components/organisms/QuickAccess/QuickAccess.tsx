@@ -30,7 +30,6 @@ const QuickAccess = () => {
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const onNewCashKick = (key: string) => {
-        console.log(pathname);
         navigate('/newcashkick');
     }
 

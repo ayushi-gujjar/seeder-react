@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import IconText from '../../molecules/IconText/IconText'
 import roundicon from './../../../Images/icon-round.png';
@@ -25,6 +25,7 @@ const heading = {
     varinet: 'h2'
 }
 
+
 const cardStyle = {
     width: '310px',
     borderRadius: '12px',
@@ -32,15 +33,31 @@ const cardStyle = {
     padding: '30px'
 }
 
-const SummaryCard = (props : any) => {
+const SummaryCard = (props: any) => {
+
+    const [total, setTotal] = useState<any>(null)
 
     const onReviewYourCredit = () => {
         console.log("onReview your credit clicked");
     }
 
+    useEffect(() => {
+        const { selectedContracts } = props;
+        const calculateTotal = () => {
+            const sum = selectedContracts.reduce((accumulator: any, data: any) => {
+                return accumulator + data.payment;
+            }, 0);
+            setTotal(sum);
+        }
+
+
+        calculateTotal();
+
+    }, [props]);
+
     return (
         <Card {...cardStyle}>
-            <div style={{ width: '300px',height:'513px' }}>
+            <div style={{ width: '300px', height: '513px' }}>
                 <Grid container>
                     <Grid item container direction="row" justifyContent={'space-between'}>
                         <Grid item xs={12} sm={12}>
@@ -73,13 +90,13 @@ const SummaryCard = (props : any) => {
                     </Grid>
                     <Grid item container direction="row" justifyContent={'space-between'} style={{ marginTop: '10px', padding: '10px' }}>
                         <Grid item xs={12} sm={12}>
-                            <SliderComp />
+                            <SliderComp totalAmount={total} />
                         </Grid>
                     </Grid>
                     <Grid item container direction="row" spacing={2}>
                         <Grid item xs={12} sm={12}>
                             <Typography variant='body1'>
-                                <span style={{ color: '#B4A9FF' }}>$0.00</span>,{' '}
+                                <span style={{ color: '#B4A9FF' }}>{`$${total}`}</span>,{' '}
                                 <span style={{ color: '#E8E7F0' }}>selected of</span>{' '}
                                 <span style={{ color: '#A5A5A6' }}>$880,000.0</span>
                             </Typography>
@@ -116,7 +133,7 @@ const SummaryCard = (props : any) => {
                     </Grid>
                     <Grid item container direction="row" justifyContent={'space-between'} marginTop={'20px'}>
                         <Grid item xs={12} sm={12}>
-                            <ButtonComp onNavChange={props.onReview} variant='contained' color='secondary' class='reniewYourCredit' label='Review Your Card' enable={false} />
+                            <ButtonComp onNavChange={props.onReview} variant='contained' color='secondary' class='reniewYourCredit' label={props.isReview ? 'Submit Your Credit' : 'Review Your Card'} enable={total > 0 ? false : true} />
                         </Grid>
                     </Grid>
                 </Grid>

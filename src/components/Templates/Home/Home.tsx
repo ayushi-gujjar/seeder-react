@@ -7,26 +7,20 @@ import Image from '../../atoms/Image/Image';
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp';
 import ButtonComp from '../../atoms/ButtonComp/ButtonComp';
 import QuickAccess from '../../organisms/QuickAccess/QuickAccess';
-import axios from 'axios';
 import { getPayments } from './../../../api/api';
 
 const tableHeaders = ['Due Date', 'Status', 'Expected Amount', 'OutStanding'];
 
 const Home = () => {
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await getPayments();
-                console.log(response)
                 setData(response);
             } catch (error) {
-                // setError(error);
             } finally {
-                setLoading(false);
             }
         };
 

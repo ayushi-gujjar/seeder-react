@@ -16,7 +16,6 @@ describe('CheckboxComp', () => {
     
     // Check if the checkbox is rendered with custom styles
     const checkboxElement = screen.getByRole('checkbox');
-    console.log(checkboxElement.style, 'checkbox element')
     expect(checkboxElement).toHaveStyle({ marginLeft: '15px', marginTop: '7px' });
   });
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import TableComp from '../../organisms/TableComp/TableComp';
 import QuickAccess from '../../organisms/QuickAccess/QuickAccess';
@@ -7,10 +7,12 @@ import testicon from './../../../Images/icon-round.png';
 import calender from './../../../Images/calendar.png';
 import download from './../../../Images/document-download.png';
 import percent from './../../../Images/percentage-square.png';
+import { getContracts } from './../../../api/api';
+import { getCashKicks } from './../../../api/api';
 
 
 const tableHeaders = ['Name', 'Status', 'Type', 'Per Payment', 'Total Financed', 'Total Available'];
-
+const myCashKicksTableHeaders = ['Name', 'Status', 'Maturity', 'Total recieved', 'Total financed'];
 const cardOne = {
     heading: {
         varient: 'h2',
@@ -39,6 +41,44 @@ const cardOne = {
 }
 
 const CashAccelerationComp = () => {
+
+    const [myCashKicks, setCashKick] = useState<any>([]);
+    const [myContracts, setMyContracts] = useState<any>([]);
+    const [acitveTab, setActiveTab] = useState<string>('MY_CONTRACTS')
+
+    const onTabChange = (tab: string) => {
+        setActiveTab(tab)
+    }
+
+    useEffect(() => {
+        const fetchConttracts = async () => {
+            try {
+                const response = await getContracts();
+                setMyContracts(response);
+
+            } catch (error) {
+                // setError(error);
+            } finally {
+            }
+        };
+        const fetchCashLicks = async () => {
+            try {
+                const response = await getCashKicks();
+                setCashKick(response);
+
+            } catch (error) {
+                // setError(error);
+            } finally {
+            }
+        };
+
+        fetchCashLicks();
+        fetchConttracts();
+
+    }, [])
+
+
+
     return (
         <Paper elevation={0} style={{ position: 'relative', padding: '16px', backgroundColor: 'transparent' }}>
             <Grid container justifyContent='space-between' spacing={0}>
@@ -63,7 +103,9 @@ const CashAccelerationComp = () => {
             </Grid>
             <Grid container style={{ marginTop: '30px', backgroundColor: '#28272B', padding: '20px', borderRadius: '12px' }}>
                 <Grid item xs={12} md={12}>
-                    <TableComp tableHeaders={tableHeaders} rows={[]} page='HOME' isCheckBox={false} headerData={{ isTab: false, isBtn: false }} headerValue={'Your Payments'} />
+                    <TableComp onTabChane={onTabChange} activeTab={acitveTab} tableHeaders={acitveTab === 'MY_CONTRACTS' ? tableHeaders : myCashKicksTableHeaders}
+                        rows={acitveTab === 'MY_CONTRACTS' ? myContracts : myCashKicks} page={acitveTab === 'MY_CONTRACTS' ? 'MY_CONTACTS' : 'MY_CASH_KICK'}
+                        isCheckBox={false} headerData={{ isTab: true, isBtn: true }} headerValue={'Your Payments'} />
                 </Grid>
             </Grid>
         </Paper>

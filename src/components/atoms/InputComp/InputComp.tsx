@@ -5,7 +5,7 @@ import idicon from './../../../Images/direct-notification.png';
 import lock from './../../../Images/lock.png';
 import eye from './../../../Images/eye.png';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const imageValue: any = {
     'smile': smile,
@@ -14,13 +14,29 @@ const imageValue: any = {
     'eye': eye
 }
 
-const InputComp = ({ inputStyle, isStartAdornment, isEndAdornment, value, startIcon, endIcon }: any) => {
+const InputComp = ({ inputStyle, isStartAdornment, isEndAdornment, value, startIcon, endIcon, inputChange }: any) => {
+
+    const [inputValue, setInputValue] = useState<any>('');
+    const onInputchange = (event: any) => {
+        setInputValue(event.target.value);
+    }
+
+    useEffect(() => {
+        const setData = () => {
+            setInputValue(inputValue);
+            inputChange(inputValue)
+        }
+        setData();
+    }, [inputValue])
+
     return (
         <div>
             <Input
                 placeholder={value}
                 id="outlined-basic input-with-icon-adornment"
                 className='input'
+                onChange={onInputchange}
+                value={inputValue}
                 startAdornment={
                     (isStartAdornment ? <InputAdornment position="start">
                         <img src={imageValue[startIcon]} alt="Custom Icon" />

@@ -1,5 +1,4 @@
 import React from 'react'
-import IconText from '../IconText/IconText'
 import './SideBarBox.css'
 import { useLocation } from 'react-router-dom';
 import ButtonComp from '../../atoms/ButtonComp/ButtonComp';
@@ -9,7 +8,7 @@ const SideBarBox = ({ textIconStyle, headers, onNavChange }: any) => {
     const { pathname } = useLocation();
 
     const headersVal = headers.map((el: any) => {
-        if (pathname == el.path) {
+        if (pathname === el.path) {
             el.isActive = true;
             el.class = 'navitem-active'
         } else {

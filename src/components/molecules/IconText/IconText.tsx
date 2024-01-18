@@ -3,25 +3,10 @@ import Image from '../../atoms/Image/Image'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import testicon from './../../../Images/icon-round.png';
 
-const textStyle = {
-    color: '#E8E7F0'
-}
+const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet, onNavChange }: any) => {
 
-const imageStyle = {
-    height: '24px',
-    width: '22px',
-    marginTop: '5px',
-    marginLeft: '8px',
-    marginRight: '8px'
-}
-
-
-
-const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet,onNavChange }: any) => {
-
-   const onClickIconText = () => {
-        console.log('here in click');
-        onNavChange(label);
+    const onClickIconText = () => {
+        if (onNavChange) onNavChange(label);
     }
 
     return (

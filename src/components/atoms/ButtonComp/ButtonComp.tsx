@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import './ButtonComp.css'
 import { ThemeProvider } from '@emotion/react';
 import theme from '../../../theme/theme';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 interface ButtonProps {
   label: string,
@@ -20,7 +19,6 @@ interface ButtonProps {
 export const ButtonComp = (props: ButtonProps) => {
 
   const onBtnClick = () => {
-    console.log('here in click');
     if (props.onNavChange) {
       props.onNavChange(props.label);
     }
