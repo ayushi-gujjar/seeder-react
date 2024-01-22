@@ -3,11 +3,11 @@ import Image from '../../atoms/Image/Image';
 import avatar from './../../../Images/avatar.png';
 import arrow from './../../../Images/arrow-bottom.png';
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp';
-import { Paper, Grid, Typography, Avatar } from '@mui/material';
+import { Paper, Grid } from '@mui/material';
 
 const Header = () => {
     return (
-        <Paper elevation={3} style={{ width: '100%', marginBottom: '10px', backgroundColor: 'transparent', boxShadow : 'none', marginTop : '35px' }}>
+        <Paper elevation={3} style={{ width: '100%', marginBottom: '10px', backgroundColor: 'transparent', boxShadow : 'none', marginTop : '20px' }}>
             <Grid container justifyContent="space-between" alignItems="center">
                 <Grid item>
                     <TypographyComp varient={'h2'} value={'Good afternoon ✋'} textStyle={{ color: '#E8E7F0' }}></TypographyComp>

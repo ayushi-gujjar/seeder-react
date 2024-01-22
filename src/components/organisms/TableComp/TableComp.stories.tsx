@@ -30,11 +30,11 @@ export const homeTable: Story = {
             { dueDate: { date: 'Mar 03,2021', days: 31 }, status: 'Upcoming', expectedAmount: '-$14,204.55', outstanding: '$156,250.05' },
             { dueDate: { date: 'Mar 03,2021', days: 31 }, status: 'Upcoming', expectedAmount: '-$14,204.55', outstanding: '$156,250.05' }
         ],
-       headerData : {
-        isTab : false,
-        isBtn : false,
-       },
-       headerValue : 'Your Payments'
+        headerData: {
+            isTab: false,
+            isBtn: false,
+        },
+        headerValue: 'Your Payments'
     }
 }
 
@@ -53,7 +53,11 @@ export const myContactsTable: Story = {
         width: '100px',
         borderRadius: '12px',
         backgroundColor: 'gray',
-        padding: '10px'
+        padding: '10px',
+        headerData: {
+            isTab: false,
+            isBtn: false,
+        }
     }
 }
 
@@ -73,7 +77,11 @@ export const newCashKickTable: Story = {
         width: '100px',
         borderRadius: '12px',
         backgroundColor: 'gray',
-        padding: '10px'
+        padding: '10px',
+        headerData: {
+            isTab: false,
+            isBtn: false,
+        }
     }
 }
 
@@ -94,7 +102,11 @@ export const newCashKickTableView: Story = {
         width: '100px',
         borderRadius: '12px',
         backgroundColor: 'gray',
-        padding: '10px'
+        padding: '10px',
+        headerData: {
+            isTab: false,
+            isBtn: false,
+        }
     }
 }
 
@@ -114,7 +126,11 @@ export const myCashKicksTable: Story = {
         width: '100px',
         borderRadius: '12px',
         backgroundColor: 'gray',
-        padding: '10px'
+        padding: '10px',
+        headerData: {
+            isTab: false,
+            isBtn: false,
+        }
     }
 }
 

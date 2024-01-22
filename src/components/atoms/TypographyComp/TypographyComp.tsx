@@ -1,14 +1,14 @@
 import { ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
-import theme, { ExtendedTypographyOptions } from '../../../theme/theme'
+import theme from '../../../theme/theme'
 
-interface typography {
+interface TypographyInterface {
     varient: any,
     value: string | number,
-    textStyle? : any
+    textStyle?: any
 }
 
-const TypographyComp = (props: typography) => {
+const TypographyComp = (props: TypographyInterface) => {
     return (
         <div>
             <ThemeProvider theme={theme}>

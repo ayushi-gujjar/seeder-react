@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import  ButtonComp  from './ButtonComp';
+import home from './../../../Images/home.png';
+import leftarrow from './../../../Images/arrow-left.png';
+
 
 const meta = {
   title: 'Atoms/ButtonComp',
@@ -110,5 +113,29 @@ export const restBtn : Story = {
     variant : 'contained',
     class : 'resetBtn',
     enable : false
+  }
+}
+
+export const navItem : Story = {
+  args : {
+    label: 'Home',
+    color : 'success',
+    variant : 'contained',
+    class : 'navitem',
+    enable : false,
+    isStartIcon : true,
+    startIcon : home
+  }
+}
+
+export const backButton : Story = {
+  args : {
+    label: 'Back',
+    color : 'success',
+    variant : 'contained',
+    class : 'backBtn',
+    enable : false,
+    isStartIcon : true,
+    startIcon : leftarrow
   }
 }

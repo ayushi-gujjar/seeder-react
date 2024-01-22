@@ -33,8 +33,8 @@ const imageStyle = {
 const CashAccelaration = ({ image, iconTextStyle, heading, data }: any) => {
     return (
         <Card {...cardStyle}>
-            {data.map((item: any, i: number) => (
-                <div style={boxStyle}>
+            {data.map((item: any) => (
+                <div key={item.heading} style={boxStyle}>
                     <div style={imageStyle}>
                         <Image src={item.icon} {...image} />
                     </div>

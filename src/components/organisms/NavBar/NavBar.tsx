@@ -8,8 +8,8 @@ import flash from './../../../Images/flash.png';
 import IconText from '../../molecules/IconText/IconText';
 
 const headerList = [
-    { value: "Home", img: home, isActie: false },
-    { value: "Cash Accleration", img: coin, isActive: true }
+    { value: "Home", img: home, isActive: true, path : '/home' },
+    { value: "Cash Accleration", img: coin, isActive: false, path : '/cash-acceleration' }
 ]
 
 const sideBarData = {
@@ -47,14 +47,14 @@ const footer = {
     varinet: 'body2'
 }
 
-const NavBar = () => {
+const NavBar = (onNavigation : any) => {
     return (
         <div style={{ height: '940px', width: '238px', backgroundColor: '#201F24', padding : '25px', marginTop : '10px' }}>
             <Image src={logo} alt={'logo'}></Image>
             <div style={{marginTop : '30px'}}>
-                <SideBarBox {...sideBarData}></SideBarBox>
+                <SideBarBox onNavChange={onNavigation} {...sideBarData}></SideBarBox>
             </div>
-            <div style={{ marginTop: '695px',padding : '18px', height : '18px' , width : '200px' }}>
+            <div style={{ marginTop: '665px',padding : '18px', height : '18px' , width : '200px' }}>
                 <IconText {...footer}></IconText>
             </div>
         </div>

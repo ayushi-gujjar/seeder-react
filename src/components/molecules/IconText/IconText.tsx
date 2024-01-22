@@ -1,33 +1,29 @@
-import { Grid } from '@mui/material'
 import React from 'react'
 import Image from '../../atoms/Image/Image'
-import InputComp from '../../atoms/InputComp/InputComp'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import testicon from './../../../Images/icon-round.png';
 
-const textStyle = {
-    color: '#E8E7F0'
-}
+const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet, onNavChange }: any) => {
 
-const imageStyle = {
-    height: '24px',
-    width: '22px',
-    marginTop: '5px',
-    marginLeft: '8px',
-    marginRight: '8px'
-}
+    const onClickIconText = () => {
+        if (onNavChange) onNavChange(label);
+    }
 
-
-
-const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet }: any) => {
     return (
-        <div>
-            <div style={{ display: 'flex' }} className='display-flex'>
-                {isLeft ? <Image imageStyle={imageStyle} src={icon} alt="image" /> : ''}
-                <TypographyComp varient={varinet} value={label} textStyle={textStyle} />
-                {isRight ? <Image imageStyle={imageStyle} src={testicon} alt="image" /> : ''}
-            </div>
-        </div>
+        <button
+            style={{ display: 'flex', backgroundColor: 'transparent' , border : 'none' }}
+            tabIndex={0}
+            onClick={onClickIconText}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    onClickIconText();
+                }
+            }}
+        >
+            {isLeft ? <Image imageStyle={imageStyle} src={icon} alt="image" /> : ''}
+            <TypographyComp varient={varinet} value={label} textStyle={textStyle} />
+            {isRight ? <Image imageStyle={imageStyle} src={testicon} alt="image" /> : ''}
+        </button>
     )
 }
 
