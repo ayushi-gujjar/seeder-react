@@ -170,12 +170,6 @@ const TableComp = ({ tableHeaders, page, rows, isCheckBox, headerData, headerVal
         const onSelection = ({ isSelected, name, type, perPayment, teamLength, payment, id }: any, checked: boolean) => {
 
             checkboxInputChange({ isSelected, name, type, perPayment, teamLength, payment, id }, checked);
-            const rowdata = data.map((el: any) => {
-                if (el.id == id) {
-                    el.isSelected = checked;
-                }
-                return el;
-            })
         }
 
         return (

@@ -42,6 +42,23 @@ const cardOne = {
     }
 }
 
+const CashCardData = (image: any, iconTextStyle: any, heading: any) => {
+    return (
+        <div>
+            <div className='calender-img'>
+                <Image {...image} />
+            </div>
+            <div style={{ marginTop: '24px' }}>
+                <IconText  {...iconTextStyle} />
+            </div>
+            <div style={{ marginTop: '8px' }} >
+                <TypographyComp {...heading} />
+            </div>
+        </div>
+    )
+
+}
+
 const CashAccelerationComp = () => {
 
     const [myCashKicks, setMyCashKicks] = useState<any>([]);
@@ -94,22 +111,7 @@ const CashAccelerationComp = () => {
     console.log(error)
     console.log(tabData)
 
-    const CashCardData = (image: any, iconTextStyle: any, heading: any) => {
-        return (
-            <div>
-                <div className='calender-img'>
-                    <Image {...image} />
-                </div>
-                <div style={{ marginTop: '24px' }}>
-                    <IconText  {...iconTextStyle} />
-                </div>
-                <div style={{ marginTop: '8px' }} >
-                    <TypographyComp {...heading} />
-                </div>
-            </div>
-        )
-
-    }
+   
 
 
     return (

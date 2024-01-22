@@ -2,16 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { Grid, Paper } from '@material-ui/core';
 import TableComp from '../../organisms/TableComp/TableComp';
-import banner from './../../../Images/banner.png';
-import Image from '../../atoms/Image/Image';
-import TypographyComp from '../../atoms/TypographyComp/TypographyComp';
-import ButtonComp from '../../atoms/ButtonComp/ButtonComp';
 import QuickAccess from '../../organisms/QuickAccess/QuickAccess';
 import { getPayments } from './../../../api/api';
 import PaymentsCard from '../../molecules/PaymentsCard/PaymentsCard';
 import testicon from './../../../Images/icon-round.png';
 import receipt from './../../../Images/receipt-text.png'
-import CircleGraph from '../../../util/CircleGraph';
 
 const tableHeaders = ['Due Date', 'Status', 'Expected Amount', 'OutStanding'];
 
