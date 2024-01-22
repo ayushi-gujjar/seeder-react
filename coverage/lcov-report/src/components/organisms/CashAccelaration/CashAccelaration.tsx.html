@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -123,7 +123,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,13 +132,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,11 +149,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,7 +177,7 @@ import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import Card from '../../molecules/Card/Card';
 import IconText from '../../molecules/IconText/IconText';
 &nbsp;
-const cardStyle = <span class="cstat-no" title="statement not covered" >{</span>
+const cardStyle = {
     height: '190px',
     width: '700px',
     borderRadius: '12px',
@@ -186,13 +186,13 @@ const cardStyle = <span class="cstat-no" title="statement not covered" >{</span>
     display: 'flex'
 }
 &nbsp;
-const boxStyle = <span class="cstat-no" title="statement not covered" >{</span>
+const boxStyle = {
     height: '204px',
     width: '190px',
     marginLeft: '20px'
 }
 &nbsp;
-const imageStyle = <span class="cstat-no" title="statement not covered" >{</span>
+const imageStyle = {
     padding: '5px',
     backgroundColor: '#28272B',
     height: '80px',
@@ -203,11 +203,11 @@ const imageStyle = <span class="cstat-no" title="statement not covered" >{</span
     alignItems: 'center'
 }
 &nbsp;
-const CashAccelaration = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> image, iconTextStyle, heading, data }: any) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+const CashAccelaration = ({ image, iconTextStyle, heading, data }: any) =&gt; {
+    return (
         &lt;Card {...cardStyle}&gt;
-            {data.map(<span class="fstat-no" title="function not covered" >(i</span>tem: any) =&gt; (
-<span class="cstat-no" title="statement not covered" >                &lt;div key={item.heading} style={boxStyle}&gt;</span>
+            {data.map((item: any) =&gt; (
+                &lt;div key={item.heading} style={boxStyle}&gt;
                     &lt;div style={imageStyle}&gt;
                         &lt;Image src={item.icon} {...image} /&gt;
                     &lt;/div&gt;
@@ -232,7 +232,7 @@ export default CashAccelaration
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-16T12:44:50.675Z
+                at 2024-01-22T13:45:48.022Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

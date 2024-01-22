@@ -22,10 +22,10 @@ const Main = () => {
     return (
             <div className="main">
                 <Grid container>
-                    <Grid item xs={2} md={2} >
+                    <Grid item xs={1} md={2} >
                         <NavBar onNavigation={onNavigate} />
                     </Grid>
-                    <Grid item xs={11} md={9} style={{padding : '20px'}}>
+                    <Grid item xs={8} md={9} style={{padding : '20px'}}>
                         <Header />
                         <div>
                             <Routes>

@@ -69,21 +69,18 @@ const DialogComp = (props: any) => {
                 component: 'form',
                 onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
                     event.preventDefault();
-                    const formData = new FormData(event.currentTarget);
-                    const formJson = Object.fromEntries((formData as any).entries());
-                    const email = formJson.email;
                     handleClose();
                 },
                 style: { backgroundColor: '#262529', borderRadius: '12px', color: 'white', width: '760px', height: '530px', padding: '10px' }
             }}
         >
             <DialogTitle>
-                <TypographyComp varient={'h1'} value={'Name your cash kick'} textStyle={{ color: '#E8E7F0' }} />
-                <TypographyComp varient={'h3'} value={'Add a name to identify your cash kick'} textStyle={{ color: '#A5A5A6', marginTop: '5px' }} />
+                <TypographyComp varient={'h1'} value={props.isSuccess ? 'Cash kick launched successfully!':'Name your cash kick'} textStyle={{ color: '#E8E7F0' }} />
+                <TypographyComp varient={'h3'} value={props.isSuccess ? 'We are reviewing your cash kick ' :'Add a name to identify your cash kick'} textStyle={{ color: '#A5A5A6', marginTop: '5px' }} />
 
             </DialogTitle>
             <DialogContent style={{ marginTop: '20px' }}>
-                {props.isSuccess ? otherBody() : successBody()}
+                {!props.isSuccess ? otherBody() : successBody()}
             </DialogContent>
             <DialogActions>
                 <ButtonComp onNavChange={onAction} label='Cancel' color='secondary' variant='contained' class='cancelBtn' />

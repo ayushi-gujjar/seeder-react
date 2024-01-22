@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,30 +107,28 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,40 +158,39 @@ import NavBar from '../../organisms/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import CashAccelerationPage from '../CashAccelarationPage/CashAccelarationPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import NewCashkickPage from '../NewCashKick/NewCashkick';
 &nbsp;
 const Main = () =&gt; {
     const navigate = useNavigate();
-    const onNavigate = <span class="fstat-no" title="function not covered" >(k</span>ey: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log('Route to: ', key);</span>
+    const onNavigate = (key: string) =&gt; {
 &nbsp;
         // Use the navigate function to change the route
-<span class="cstat-no" title="statement not covered" >        if (key === 'Home') {</span>
-<span class="cstat-no" title="statement not covered" >            navigate('/home');</span>
-        } else <span class="cstat-no" title="statement not covered" >if (key === 'Cash Accleration') {</span>
-<span class="cstat-no" title="statement not covered" >            navigate('/cash-acceleration');</span>
+        if (key === 'Home') {
+            navigate('/home');
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (key === 'Cash Accleration') {
+            navigate('/cash-acceleration');
         }
     };
 &nbsp;
     return (
-        &lt;React.StrictMode&gt;
             &lt;div className="main"&gt;
                 &lt;Grid container&gt;
-                    &lt;Grid item xs={2} md={2} &gt;
+                    &lt;Grid item xs={1} md={2} &gt;
                         &lt;NavBar onNavigation={onNavigate} /&gt;
                     &lt;/Grid&gt;
-                    &lt;Grid item xs={11} md={9} style={{padding : '20px'}}&gt;
+                    &lt;Grid item xs={8} md={9} style={{padding : '20px'}}&gt;
                         &lt;Header /&gt;
                         &lt;div&gt;
                             &lt;Routes&gt;
                                 &lt;Route path="/" element={&lt;HomePage /&gt;} /&gt;
                                 &lt;Route path="/home" element={&lt;HomePage /&gt;} /&gt;
                                 &lt;Route path="/cash-acceleration" element={&lt;CashAccelerationPage /&gt;} /&gt;
+                                &lt;Route path="/newcashkick" element={&lt;NewCashkickPage /&gt;} /&gt;
                             &lt;/Routes&gt;
                         &lt;/div&gt;
                     &lt;/Grid&gt;
                 &lt;/Grid&gt;
             &lt;/div&gt;
-        &lt;/React.StrictMode&gt;
     );
 };
 &nbsp;
@@ -205,7 +202,7 @@ export default Main;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-16T12:44:50.675Z
+                at 2024-01-22T13:45:48.022Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

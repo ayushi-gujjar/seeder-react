@@ -1,8 +1,9 @@
 import { FormControlLabel, Checkbox } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 
 const CheckboxComp = (props: any) => {
+    const {value} =  props;
     const styles = {
         root: {
             color: '#A5A5A6 !important',
@@ -23,12 +24,13 @@ const CheckboxComp = (props: any) => {
         },
     };
 
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(value ? value : false);
     const StyledCheckbox = withStyles(styles)(Checkbox);
-    const handleChange = () => {
-        setChecked(!checked);
-        props.onChange(checked);
+    const handleChange = ($event : any) => {
+        setChecked($event.target.checked);
+        props.onChange($event.target.checked)
     };
+
     return (
         <FormControlLabel
             control={<StyledCheckbox value={checked} checked={checked} onChange={handleChange} />}

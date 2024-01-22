@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -88,7 +88,21 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,9 +115,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">214x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">214x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,24 +144,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import Button from '@mui/material/Button';
 import './ButtonComp.css'
+import { ThemeProvider } from '@emotion/react';
+import theme from '../../../theme/theme';
 &nbsp;
-interface ButtonProps {
+export interface ButtonProps {
   label: string,
   color: "secondary" | "inherit" | "primary" | "success" | "error" | "info" | "warning" | undefined,
   variant: "text" | "outlined" | "contained" | undefined,
   class: string,
-  enable?: boolean
+  enable?: boolean,
+  isStartIcon?: boolean,
+  startIcon?: any,
+  onNavChange?: any
 }
 &nbsp;
 &nbsp;
 export const ButtonComp = (props: ButtonProps) =&gt; {
-  
+&nbsp;
+  const onBtnClick = () =&gt; {
+    if (props.onNavChange) {
+      props.onNavChange(props.label);
+    }
+  }
+&nbsp;
   return (
-    &lt;div&gt;
-        &lt;Button disabled={props.enable ? props.enable : false} variant={props.variant} color={props.color} size="large"
+    &lt;div id='testid'&gt;
+      &lt;ThemeProvider theme={theme}&gt;
+        &lt;Button onClick={onBtnClick} startIcon={props.isStartIcon ? &lt;img src={props.startIcon} alt="Custom Icon" style={{ width: '16px', height: '16px', marginRight: '5px', marginLeft: '10px' }} /&gt; : null} disabled={props.enable ? props.enable : false} variant={props.variant} color={props.color} size="large"
           className={`${props.class} ${props.enable ? 'disable' : ''}`}&gt;
           {props.label}
         &lt;/Button&gt;
+      &lt;/ThemeProvider&gt;
+&nbsp;
     &lt;/div&gt;
   )
 }
@@ -145,7 +187,7 @@ export default ButtonComp;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-16T12:44:50.675Z
+                at 2024-01-22T13:45:48.022Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

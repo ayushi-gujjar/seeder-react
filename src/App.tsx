@@ -5,12 +5,13 @@ import theme from './theme/theme'
 import Main from './components/pages/Main/Main';
 import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+function App() {  
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Main />
-      </BrowserRouter>,
+      </BrowserRouter>
     </ThemeProvider>
 
   );

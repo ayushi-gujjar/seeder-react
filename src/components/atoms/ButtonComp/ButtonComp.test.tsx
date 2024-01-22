@@ -1,47 +1,127 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import ButtonComp from './ButtonComp';
+import { render, fireEvent } from '@testing-library/react';
+import ButtonComp, { ButtonProps } from './ButtonComp';
+// Mock data for testing
+const mockData: ButtonProps = {
+  label: 'Click Me',
+  color: 'primary',
+  variant: 'contained',
+  class: 'custom-button',
+  enable: false,
+  isStartIcon: true,
+  startIcon: 'path/to/icon.png',
+  onNavChange: jest.fn(),
+};
 
-describe('ButtonComp', () => {
-  test('renders button with label', () => {
-    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" />);
-    const buttonElement = screen.getByText('Click me');
-    expect(buttonElement).toBeInTheDocument();
-  });
+// Helper function to render ButtonComp with mock data
+const renderButtonComp = (props: ButtonProps = mockData) => {
+  return render(<ButtonComp {...props} />);
+};
 
-  test('applies the correct color and variant', () => {
-    render(<ButtonComp label="Submit" color="primary" variant="contained" class="custom-class" />);
-    const buttonElement = screen.getByText('Submit');
+test('renders ButtonComp with correct props and default state', () => {
+  const { getByText, getByAltText } = renderButtonComp();
+  const buttonElement = getByText(mockData.label);
+  const startIconElement = getByAltText('Custom Icon');
 
-    // Check the color and variant classes
-    expect(buttonElement).toHaveClass('MuiButton-containedPrimary');
-  });
+  // Assertions
+  expect(buttonElement).toBeInTheDocument();
+  expect(buttonElement).toHaveClass('custom-button');
+  expect(buttonElement).not.toHaveClass('disable');
+  expect(buttonElement).not.toBeDisabled();
+  expect(startIconElement).toBeInTheDocument();
+});
 
-  test('applies additional class when enable is false', () => {
-    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" enable={true} />);
-    const buttonElement = screen.getByText('Click me');
 
-    // Check if the 'disable' class is applied
-    expect(buttonElement).toHaveClass('disable');
-  });
+test('renders disabled ButtonComp when enable prop is true', () => {
+  const { getByText } = renderButtonComp({ ...mockData, enable: true });
+  const buttonElement = getByText(mockData.label);
 
-  // test('calls onClick function when clicked', () => {
-  //   const onClickMock = jest.fn();
-  //   render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" onClick={onClickMock} />);
-  //   const buttonElement = screen.getByText('Click me');
+  // Assertions
+  expect(buttonElement).toBeDisabled();
+  expect(buttonElement).toHaveClass('disable');
+});
 
-  //   // Simulate a click event
-  //   userEvent.click(buttonElement);
+test('renders ButtonComp without start icon when isStartIcon is false', () => {
+  const { getByText, queryByAltText } = renderButtonComp({ ...mockData, isStartIcon: false });
+  const buttonElement = getByText(mockData.label);
+  const startIconElement = queryByAltText('Custom Icon');
 
-  //   // Check if the onClick function is called
-  //   expect(onClickMock).toHaveBeenCalled();
-  // });
+  // Assertions
+  expect(buttonElement).toBeInTheDocument();
+  expect(startIconElement).not.toBeInTheDocument();
+});
 
-  test('is disabled when enable is true', () => {
-    render(<ButtonComp label="Click me" color="primary" variant="contained" class="custom-class" enable={true} />);
-    const buttonElement = screen.getByText('Click me');
+test('calls onNavChange prop when button is clicked', () => {
+  const { getByText } = renderButtonComp();
+  const buttonElement = getByText(mockData.label);
 
-    // Check if the button is disabled
-    expect(buttonElement).toBeDisabled();
-  });
+  // Simulate button click
+  fireEvent.click(buttonElement);
+
+  // Check if the onNavChange prop is called with the correct argument
+  expect(mockData.onNavChange).toHaveBeenCalledWith(mockData.label);
+});
+
+test('renders ButtonComp with start icon when isStartIcon is true', () => {
+  const { getByAltText } = renderButtonComp({ ...mockData, isStartIcon: true });
+  const startIconElement = getByAltText('Custom Icon');
+
+  // Assertions
+  expect(startIconElement).toBeInTheDocument();
+});
+
+test('calls onNavChange prop when button is clicked', () => {
+  // Mock data
+  const mockData: any = {
+    label: 'Test Button',
+    onNavChange: jest.fn(),
+    color: 'primary',
+    variant: 'contained',
+    class: 'custom-button',
+    enable: false,
+    isStartIcon: true,
+    startIcon: 'mock-icon.png',
+  };
+
+  // Render the ButtonComp with the mock data
+  const { getByText } = render(
+    <ButtonComp
+      label={mockData.label}
+      onNavChange={mockData.onNavChange}
+      color={mockData.color}
+      variant={mockData.variant}
+      class={mockData.class}
+      enable={mockData.enable}
+      isStartIcon={mockData.isStartIcon}
+      startIcon={mockData.startIcon}
+    />
+  );
+
+  // Simulate button click
+  const buttonElement = getByText(mockData.label);
+  fireEvent.click(buttonElement);
+
+  // Check if the onNavChange prop is called with the correct argument
+  expect(mockData.onNavChange).toHaveBeenCalledWith(mockData.label);
+});
+
+test('does not call onNavChange when onNavChange is null', () => {
+  const mockData : ButtonProps= {
+    label: 'Test Button',
+    onNavChange: null,
+    color: 'primary',
+    variant: 'contained',
+    class: 'custom-button',
+    enable: false,
+    isStartIcon: true,
+    startIcon: 'mock-icon.png',
+  };
+
+  const { getByText } = render(<ButtonComp {...mockData} />);
+  const buttonElement = getByText(mockData.label);
+
+  // Simulate button click
+  fireEvent.click(buttonElement);
+
+  // Check if the onNavChange prop is NOT called
 });

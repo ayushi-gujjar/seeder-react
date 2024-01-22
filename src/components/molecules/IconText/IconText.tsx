@@ -10,13 +10,20 @@ const IconText = ({ isLeft, isRight, imageStyle, icon, textStyle, label, varinet
     }
 
     return (
-        <div>
-            <div style={{ display: 'flex' }} className='display-flex' onClick={onClickIconText}>
-                {isLeft ? <Image imageStyle={imageStyle} src={icon} alt="image" /> : ''}
-                <TypographyComp varient={varinet} value={label} textStyle={textStyle} />
-                {isRight ? <Image imageStyle={imageStyle} src={testicon} alt="image" /> : ''}
-            </div>
-        </div>
+        <button
+            style={{ display: 'flex', backgroundColor: 'transparent' , border : 'none' }}
+            tabIndex={0}
+            onClick={onClickIconText}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    onClickIconText();
+                }
+            }}
+        >
+            {isLeft ? <Image imageStyle={imageStyle} src={icon} alt="image" /> : ''}
+            <TypographyComp varient={varinet} value={label} textStyle={textStyle} />
+            {isRight ? <Image imageStyle={imageStyle} src={testicon} alt="image" /> : ''}
+        </button>
     )
 }
 

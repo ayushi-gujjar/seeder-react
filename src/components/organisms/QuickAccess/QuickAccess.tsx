@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonComp from '../../atoms/ButtonComp/ButtonComp'
 import TypographyComp from '../../atoms/TypographyComp/TypographyComp'
 import Card from '../../molecules/Card/Card'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const temp = {
     height: '220px',
@@ -27,7 +27,6 @@ const btnValue: any = {
 
 const QuickAccess = () => {
 
-    const { pathname } = useLocation();
     const navigate = useNavigate();
     const onNewCashKick = (key: string) => {
         navigate('/newcashkick');

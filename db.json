@@ -1,44 +1,79 @@
 {
   "contracts": [
     {
+      "id": 1,
       "name": "Contract 1",
       "status": "Available",
       "type": "Monthly",
-      "perPayment": "$12,000.23",
+      "perPayment": 12000.23,
       "totalFinanced": null,
-      "totalAvailable": "$126,722.64"
+      "totalAvailable": 126722.64,
+      "isSelected": false,
+      "teamLength": {
+        "months": "11",
+        "fee": 12
+      },
+      "payment": 126722
     },
     {
-      "name": "Contract 1",
+      "id": 2,
+      "name": "Contract 2",
       "status": "Available",
       "type": "Monthly",
-      "perPayment": "$12,000.23",
+      "perPayment": 11000.23,
       "totalFinanced": null,
-      "totalAvailable": "$126,722.64"
+      "totalAvailable": 126722.64,
+      "isSelected": false,
+      "teamLength": {
+        "months": "11",
+        "fee": 12
+      },
+      "payment": 126722
     },
     {
-      "name": "Contract 1",
+      "id": 3,
+      "name": "Contract 3",
       "status": "Available",
       "type": "Monthly",
-      "perPayment": "$12,000.23",
+      "perPayment": 5000,
       "totalFinanced": null,
-      "totalAvailable": "$126,722.64"
+      "totalAvailable": 126722.64,
+      "isSelected": false,
+      "teamLength": {
+        "months": "11",
+        "fee": 12
+      },
+      "payment": 126722
     },
     {
-      "name": "Contract 1",
+      "id": 4,
+      "name": "Contract 4",
       "status": "Available",
       "type": "Monthly",
-      "perPayment": "$12,000.23",
+      "perPayment": 2000,
       "totalFinanced": null,
-      "totalAvailable": "$126,722.64"
+      "totalAvailable": 126722.64,
+      "isSelected": false,
+      "teamLength": {
+        "months": "11",
+        "fee": 12
+      },
+      "payment": 126722
     },
     {
-      "name": "Contract 1",
+      "id": 5,
+      "name": "Contract 5",
       "status": "Available",
       "type": "Monthly",
-      "perPayment": "$12,000.23",
+      "perPayment": 18000,
       "totalFinanced": null,
-      "totalAvailable": "$126,722.64"
+      "totalAvailable": 126722.64,
+      "isSelected": false,
+      "teamLength": {
+        "months": "11",
+        "fee": 12
+      },
+      "payment": 126722
     }
   ],
   "cahskciks": [
@@ -54,7 +89,8 @@
       "totalFinanced": 126722
     },
     {
-      "id": "0f6f",
+      "id": "7861",
+      "name": "my trial kick",
       "status": "Pending",
       "maturity": "Jan 18, 2024",
       "totalReceived": {
@@ -71,8 +107,8 @@
         "days": 31
       },
       "status": "Upcoming",
-      "expectedAmount": "-$14,204.55",
-      "outstanding": "$156,250.05"
+      "expectedAmount": -14204.55,
+      "outstanding": 156250
     },
     {
       "dueDate": {
@@ -80,8 +116,8 @@
         "days": 31
       },
       "status": "Upcoming",
-      "expectedAmount": "-$14,204.55",
-      "outstanding": "$156,250.05"
+      "expectedAmount": -14204.55,
+      "outstanding": 156250
     },
     {
       "dueDate": {
@@ -89,8 +125,8 @@
         "days": 31
       },
       "status": "Upcoming",
-      "expectedAmount": "-$14,204.55",
-      "outstanding": "$156,250.05"
+      "expectedAmount": -14204.55,
+      "outstanding": 156250
     },
     {
       "dueDate": {
@@ -98,8 +134,8 @@
         "days": 31
       },
       "status": "Upcoming",
-      "expectedAmount": "-$14,204.55",
-      "outstanding": "$156,250.05"
+      "expectedAmount": -14204.55,
+      "outstanding": 156250
     },
     {
       "dueDate": {
@@ -107,8 +143,8 @@
         "days": 31
       },
       "status": "Upcoming",
-      "expectedAmount": "-$14,204.55",
-      "outstanding": "$156,250.05"
+      "expectedAmount": -14204.55,
+      "outstanding": 156250
     }
   ],
   "newcashkickContracts": [
@@ -120,7 +156,7 @@
       "perPayment": 12000,
       "teamLength": {
         "months": "11",
-        "fee": "12"
+        "fee": 12
       },
       "payment": 126722
     },
@@ -132,7 +168,7 @@
       "perPayment": 12000,
       "teamLength": {
         "months": "11",
-        "fee": "12"
+        "fee": 12
       },
       "payment": 126722
     },
@@ -144,7 +180,7 @@
       "perPayment": 12000,
       "teamLength": {
         "months": "11",
-        "fee": "12"
+        "fee": 12
       },
       "payment": 126722
     },
@@ -156,7 +192,7 @@
       "perPayment": 12000,
       "teamLength": {
         "months": "11",
-        "fee": "12"
+        "fee": 12
       },
       "payment": 126722
     },
@@ -168,7 +204,7 @@
       "perPayment": 12000,
       "teamLength": {
         "months": "11",
-        "fee": "12"
+        "fee": 12
       },
       "payment": 126722
     }

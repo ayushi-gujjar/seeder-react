@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import TableComp from '../../organisms/TableComp/TableComp';
 import QuickAccess from '../../organisms/QuickAccess/QuickAccess';
-import CashCard from '../../molecules/CashCard/CashCard';
 import testicon from './../../../Images/icon-round.png';
 import calender from './../../../Images/calendar.png';
 import download from './../../../Images/document-download.png';
 import percent from './../../../Images/percentage-square.png';
-import { getContracts } from './../../../api/api';
-import { getCashKicks } from './../../../api/api';
+import { getContracts, getCashKicks } from './../../../api/api';
+import Image from '../../atoms/Image/Image';
+import IconText from '../../molecules/IconText/IconText';
+import TypographyComp from '../../atoms/TypographyComp/TypographyComp';
+import './CashAccelerationComp.css'
 
 
 const tableHeaders = ['Name', 'Status', 'Type', 'Per Payment', 'Total Financed', 'Total Available'];
@@ -42,12 +44,20 @@ const cardOne = {
 
 const CashAccelerationComp = () => {
 
-    const [myCashKicks, setCashKick] = useState<any>([]);
+    const [myCashKicks, setMyCashKicks] = useState<any>([]);
     const [myContracts, setMyContracts] = useState<any>([]);
-    const [acitveTab, setActiveTab] = useState<string>('MY_CONTRACTS')
+    const [activeTab, setActiveTab] = useState<string>('MY_CONTRACTS')
+    const [error, setError] = useState<any>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [tabData, setTabData] = useState<any>([])
 
     const onTabChange = (tab: string) => {
-        setActiveTab(tab)
+        setActiveTab(tab);
+        if (tab === 'MY_CONTRACTS') {
+            setTabData(myContracts)
+        } else {
+            setTabData(myCashKicks)
+        }
     }
 
     useEffect(() => {
@@ -55,28 +65,51 @@ const CashAccelerationComp = () => {
             try {
                 const response = await getContracts();
                 setMyContracts(response);
+                setTabData(response);
 
             } catch (error) {
-                // setError(error);
+                setError(error);
             } finally {
+                setLoading(false);
             }
         };
         const fetchCashLicks = async () => {
             try {
                 const response = await getCashKicks();
-                setCashKick(response);
+                setMyCashKicks(response);
 
             } catch (error) {
-                // setError(error);
+                setError(error);
+                console.log(error);
             } finally {
+                setLoading(false);
+                console.log(loading);
             }
         };
 
         fetchCashLicks();
         fetchConttracts();
 
-    }, [])
+    }, [activeTab])
+    console.log(error)
+    console.log(tabData)
 
+    const CashCardData = (image: any, iconTextStyle: any, heading: any) => {
+        return (
+            <div>
+                <div className='calender-img'>
+                    <Image {...image} />
+                </div>
+                <div style={{ marginTop: '24px' }}>
+                    <IconText  {...iconTextStyle} />
+                </div>
+                <div style={{ marginTop: '8px' }} >
+                    <TypographyComp {...heading} />
+                </div>
+            </div>
+        )
+
+    }
 
 
     return (
@@ -85,13 +118,13 @@ const CashAccelerationComp = () => {
                 <Grid item xs={12} sm={8} md={8} style={{ backgroundColor: '#201F24', padding: '20px', borderRadius: '12px', paddingTop: '50px', paddingLeft: '60px' }}>
                     <Grid container direction='row' alignItems="center">
                         <Grid item xs={4} md={4} sm={4}>
-                            <CashCard image={{ src: calender, alt: 'calneder' }} {...cardOne} />
+                            {CashCardData({ src: calender, alt: 'calneder' }, cardOne.iconTextStyle, cardOne.heading)}
                         </Grid>
                         <Grid item xs={4} md={4} sm={4}>
-                            <CashCard image={{ src: download, alt: 'download' }} {...cardOne} />
+                            {CashCardData({ src: download, alt: 'download' }, cardOne.iconTextStyle, cardOne.heading)}
                         </Grid>
                         <Grid item xs={4} md={4} sm={4}>
-                            <CashCard image={{ src: percent, alt: 'percent' }} {...cardOne} />
+                            {CashCardData({ src: percent, alt: 'percent' }, cardOne.iconTextStyle, cardOne.heading)}
                         </Grid>
                     </Grid>
                 </Grid>
@@ -103,8 +136,8 @@ const CashAccelerationComp = () => {
             </Grid>
             <Grid container style={{ marginTop: '30px', backgroundColor: '#28272B', padding: '20px', borderRadius: '12px' }}>
                 <Grid item xs={12} md={12}>
-                    <TableComp onTabChane={onTabChange} activeTab={acitveTab} tableHeaders={acitveTab === 'MY_CONTRACTS' ? tableHeaders : myCashKicksTableHeaders}
-                        rows={acitveTab === 'MY_CONTRACTS' ? myContracts : myCashKicks} page={acitveTab === 'MY_CONTRACTS' ? 'MY_CONTACTS' : 'MY_CASH_KICK'}
+                    <TableComp onTabChane={onTabChange} activeTab={activeTab} tableHeaders={activeTab === 'MY_CONTRACTS' ? tableHeaders : myCashKicksTableHeaders}
+                        rows={activeTab === 'MY_CONTRACTS' ? myContracts : myCashKicks} page={activeTab === 'MY_CONTRACTS' ? 'MY_CONTACTS' : 'MY_CASH_KICK'}
                         isCheckBox={false} headerData={{ isTab: true, isBtn: true }} headerValue={'Your Payments'} />
                 </Grid>
             </Grid>

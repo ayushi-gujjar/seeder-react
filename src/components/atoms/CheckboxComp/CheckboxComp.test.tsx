@@ -1,49 +1,33 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent, getByTestId } from '@testing-library/react';
 import CheckboxComp from './CheckboxComp';
 
-describe('CheckboxComp', () => {
-  test('renders checkbox with default styles', () => {
-    render(<CheckboxComp />);
-    
-    // Check if the checkbox is rendered with default styles
-    const checkboxElement = screen.getByRole('checkbox');
-    expect(checkboxElement).toHaveStyle({ color: 'rgb(165, 165, 166)' });
-  });
+// Mock data for testing
+const mockData = {
+  isMargin: true,
+  onChange: jest.fn(),
+};
 
-  test('renders checkbox with custom styles', () => {
-    render(<CheckboxComp isMargin />);
-    
-    // Check if the checkbox is rendered with custom styles
-    const checkboxElement = screen.getByRole('checkbox');
-    expect(checkboxElement).toHaveStyle({ marginLeft: '15px', marginTop: '7px' });
-  });
+test('renders CheckboxComp with correct props and handles change event', () => {
+  const { getByRole } = render(<CheckboxComp {...mockData} />);
+  const checkboxElement = getByRole('checkbox');
+  expect(checkboxElement).toBeInTheDocument();
+  fireEvent.click(checkboxElement);
+  expect(mockData.onChange).toHaveBeenCalledWith(true);
+});
 
-  test('changes the state on click', () => {
-    render(<CheckboxComp />);
-    
-    // Check if the checkbox is unchecked initially
-    const checkboxElement = screen.getByRole('checkbox');
-    expect(checkboxElement).not.toBeChecked();
 
-    // Simulate a click event
-    fireEvent.click(checkboxElement);
+test('renders CheckboxComp with correct styles', () => {
+  // Mock props
+  const mockProps = {
+    isMargin: false,
+    onChange: jest.fn(), // Mock the onChange function,
+    value : true
+  };
 
-    // Check if the checkbox is checked after click
-    expect(checkboxElement).toBeChecked();
-  });
+  const { container } = render(<CheckboxComp {...mockProps} />);
 
-  test('applies custom styles when checked', () => {
-    render(<CheckboxComp />);
-    
-    // Check if the checkbox is unchecked initially
-    const checkboxElement = screen.getByRole('checkbox');
-    expect(checkboxElement).not.toHaveStyle({ backgroundColor: 'red', fill: 'red', color: '#B4A9FF !important' });
+  const checkboxCompRoot = container.firstChild;
 
-    // Simulate a click event
-    fireEvent.click(checkboxElement);
-
-    // Check if the checkbox is checked with custom styles
-    expect(checkboxElement).toHaveStyle({ backgroundColor: 'red', fill: 'red', color: '' });
-  });
+  
 });

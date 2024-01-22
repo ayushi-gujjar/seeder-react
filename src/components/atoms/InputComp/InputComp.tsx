@@ -23,8 +23,9 @@ const InputComp = ({ inputStyle, isStartAdornment, isEndAdornment, value, startI
 
     useEffect(() => {
         const setData = () => {
-            setInputValue(inputValue);
-            inputChange(inputValue)
+            const newValue = inputValue;
+            setInputValue(newValue);
+            inputChange(newValue);
         }
         setData();
     }, [inputValue])
